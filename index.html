@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Hyorism</title>
+  </head>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Borel&display=swap");
+    * {
+      font-family: "Borel", cursive;
+    }
+
+    .mytitle {
+      width: 100%;
+      height: 250px;
+      background-color: aqua;
+      background-image: linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.3),
+          rgba(0, 0, 0, 0.3)
+        ),
+        url("wallpaperhyori.jpeg");
+      background-position: center 10%;
+      background-size: cover;
+
+      color: white;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .mypost {
+      max-width: 500px;
+      width: 95%;
+
+      margin: 20px auto 0px auto;
+      box-shadow: 0px 0px 3px 0px gray;
+      padding: 20px;
+    }
+
+    .mypost > button {
+      margin-top: 17px;
+    }
+
+    .mycards {
+      max-width: 500px;
+      width: 95%;
+
+      margin: 20px auto 0px auto;
+      box-shadow: 0px 0px 3px 0px gray;
+      padding: 20px;
+    }
+
+    .mycards > .card {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+    }
+
+    body {
+      background: #ecf4fb;
+    }
+
+    .img-gallery {
+      width: 80%;
+      margin: 100px auto 50px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-gap: 30px;
+    }
+
+    .img-gallery img {
+      width: 100%;
+      cursor: pointer;
+    }
+
+    .img-gallery img:hover {
+      transform: scale(0.8) rotate(-15deg);
+      border-radius: 20px;
+      box-shadow: 0 32px 75px rgba(68, 77, 136, 0.2);
+    }
+
+    .full-img {
+      width: 100%;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.9);
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+    }
+
+    .full-img img {
+      width: 90%;
+      max-width: 500px;
+    }
+
+    .full-img span {
+      position: absolute;
+      top: 5%;
+      right: 5%;
+      font-size: 30px;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+  <body>
+    <div class="mytitle">
+      <h1>Hyorism</h1>
+    </div>
+
+    <div class="mypost">
+      <div class="form-floating mb-3">
+        <input
+          type="email"
+          class="form-control"
+          id="floatingInput"
+          placeholder="name@example.com"
+        />
+        <label for="floatingInput">Name</label>
+      </div>
+      <div class="form-floating">
+        <textarea
+          class="form-control"
+          placeholder="Leave a comment here"
+          id="floatingTextarea"
+        ></textarea>
+        <label for="floatingTextarea">Comments</label>
+      </div>
+      <button type="button" class="btn btn-warning">Add</button>
+    </div>
+
+    <div class="mycards">
+      <div class="card">
+        <div class="card-body">
+          <blockquote class="blockquote mb-0">
+            <p>One & only, best performer!</p>
+            <footer class="blockquote-footer">Sogil-Daek</footer>
+          </blockquote>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <blockquote class="blockquote mb-0">
+            <p>
+              Thank you for being an animal-rights activist! You're making a
+              meaningful movement in Korea.
+            </p>
+            <footer class="blockquote-footer">Hyorish</footer>
+          </blockquote>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <blockquote class="blockquote mb-0">
+            <p>Born-to-be superstar in all area with powerful influence.</p>
+            <footer class="blockquote-footer">Yoga master</footer>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+
+    <div class="full-img" id="fullImgBox">
+      <img src="images/img1.jpeg" id="fullImg" />
+      <span onclick="closeFullImg()">X</span>
+    </div>
+    <div class="img-gallery">
+      <img src="images/img1.webp" onclick="openFullImg(this.src)" />
+      <img src="images/img2.png" onclick="openFullImg(this.src)" />
+      <img src="images/img3.jpeg" onclick="openFullImg(this.src)" />
+      <img src="images/img4.jpg" onclick="openFullImg(this.src)" />
+      <img src="images/img5.jpeg" onclick="openFullImg(this.src)" />
+      <img src="images/img6.jpeg" onclick="openFullImg(this.src)" />
+      <img src="images/img7.png" onclick="openFullImg(this.src)" />
+      <img src="images/img8.jpeg" onclick="openFullImg(this.src)" />
+      <img src="images/img9.jpeg" onclick="openFullImg(this.src)" />
+      <img src="images/img10.png" onclick="openFullImg(this.src)" />
+      <img src="images/img11.jpeg" onclick="openFullImg(this.src)" />
+      <img src="images/img12.jpeg" onclick="openFullImg(this.src)" />
+      <img src="images/img13.jpeg" onclick="openFullImg(this.src)" />
+      <img src="images/img14.jpg" onclick="openFullImg(this.src)" />
+      <img src="images/img15.jpeg" onclick="openFullImg(this.src)" />
+      <img src="images/img16.jpeg" onclick="openFullImg(this.src)" />
+      <img src="images/img17.jpeg" onclick="openFullImg(this.src)" />
+      <img src="images/img18.jpeg" onclick="openFullImg(this.src)" />
+      <img src="images/img19.jpeg" onclick="openFullImg(this.src)" />
+      <img src="images/img20.jpeg" onclick="openFullImg(this.src)" />
+      <img src="images/img21.jpeg" onclick="openFullImg(this.src)" />
+      <img src="images/img22.jpeg" onclick="openFullImg(this.src)" />
+      <img src="images/img23.jpeg" onclick="openFullImg(this.src)" />
+      <img src="images/img24.jpeg" onclick="openFullImg(this.src)" />
+      <img src="images/img25.jpeg" onclick="openFullImg(this.src)" />
+      <img src="images/img26.jpeg" onclick="openFullImg(this.src)" />
+      <img src="images/img27.jpeg" onclick="openFullImg(this.src)" />
+      <img src="images/img28.jpeg" onclick="openFullImg(this.src)" />
+      <img src="images/img29.jpeg" onclick="openFullImg(this.src)" />
+      <img src="images/img30.jpeg" onclick="openFullImg(this.src)" />
+      <img src="images/img31.jpeg" onclick="openFullImg(this.src)" />
+      <img src="images/img32.jpeg" onclick="openFullImg(this.src)" />
+      <img src="images/img33.jpeg" onclick="openFullImg(this.src)" />
+      <img src="images/img34.jpeg" onclick="openFullImg(this.src)" />
+      <img src="images/img35.jpeg" onclick="openFullImg(this.src)" />
+      <img src="images/img36.jpeg" onclick="openFullImg(this.src)" />
+      <img src="images/img37.jpeg" onclick="openFullImg(this.src)" />
+      <img src="images/img38.jpeg" onclick="openFullImg(this.src)" />
+      <img src="images/img39.png" onclick="openFullImg(this.src)" />
+      <img src="images/img40.jpeg" onclick="openFullImg(this.src)" />
+      <img src="images/img41.jpeg" onclick="openFullImg(this.src)" />
+      <img src="images/img42.jpeg" onclick="openFullImg(this.src)" />
+      <img src="images/img43.png" onclick="openFullImg(this.src)" />
+      <img src="images/img44.jpeg" onclick="openFullImg(this.src)" />
+      <img src="images/img45.jpeg" onclick="openFullImg(this.src)" />
+      <img src="images/img46.jpeg" onclick="openFullImg(this.src)" />
+      <img src="images/img47.jpeg" onclick="openFullImg(this.src)" />
+    </div>
+
+    <script>
+      var fullImgBox = document.getElementById("fullImgBox");
+      var fullImg = document.getElementById("fullImg");
+
+      function openFullImg(pic) {
+        fullImgBox.style.display = "flex";
+        fullImg.src = pic;
+      }
+
+      function closeFullImg() {
+        fullImgBox.style.display = "none";
+      }
+    </script>
+  </body>
+</html>
